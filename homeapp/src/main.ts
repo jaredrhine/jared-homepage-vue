@@ -4,10 +4,12 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 
+import "markdown-it-vue/dist/markdown-it-vue.css";
+
 Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount("#app");
+}).$mount("#jared");
