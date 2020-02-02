@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <markdown-it-vue :content="pageContent" /> <!-- TODO: maybe add class attr -->
+    <h1 v-if="pageTitle" v-html="pageTitle" />
+    <markdown-it-vue :content="pageContent" />
+    <!-- TODO: maybe add class attr -->
   </div>
 </template>
 
@@ -24,8 +26,16 @@ export default {
       return page;
     },
     pageContent: function() {
-      const body = content.pages[this.pageId]?.body;
+      const body = this.page?.body;
       return body ? body : "";
+    },
+    pageTitle: function() {
+      if (this.page?.no_title) return;
+      const title = this.page?.title || this.page?.frontmatter?.title || this.page?.name;
+      return title;
+    },
+    page: function() {
+      return content.pages[this.pageId];
     }
   },
   data() {

@@ -12,17 +12,17 @@ import content from "../assets/content.json";
 export default {
   computed: {
     links: function() {
-      const list = content.navigation
-      const output = []
+      const list = content.navigation;
+      const output = [];
       list.forEach(link => {
         const page = content.routes[link];
         const name = content.pages[page]?.name;
-        output.push({ route: link, text: name })
-      })
+        output.push({ route: link, text: name });
+      });
       return output;
     }
   }
-}
+};
 </script>
 
 <style lang="scss">

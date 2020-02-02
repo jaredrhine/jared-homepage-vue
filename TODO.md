@@ -8,12 +8,33 @@
 - ~~Grid structure~~
 - ~~Color scheme~~
 - ~~Markdown renderer~~
-- `npm run deploy` around vue-cli S3 deploy plugin
-- Update sidebar grid to be 3-part with top-and-bottom pinned, middle scrollable
-- Homepage and info arch
-- Colophon
-- Markdown index/table-of-contents
-- Content, lots
+- ~~prepare circular headshot~~
+- ~~update sidebar grid to be 3-part with top-and-bottom pinned, middle scrollable~~
+- ~~color contrast of sidebar text~~
+- ~~acute-e for resume~~
+- ~~unify TODOs~~
+- ~~markdown/main width~~
+- ~~tune titles~~
+- ~~markdown-body font skew from global~~
 - Resume update
-- Dynamic theme
+- mobile breakpoint again
+- favicon
+- print CSS (for resume at least maybe)
+- Homepage tuning
+- Tech stack
+- Skills inventory
+- Mangement style
+- DX is key
+- Unix homebase
+- Theta design
+- Vue onboarding
+- Naming guidelines
+- Tomo design polish
+- Content is good enough
+- Remove Todo from pages/nav
+- `npm run deploy` around vue-cli S3 deploy plugin
+- Try to trace fat webpack bundle, trim. Apologize in colophon.
+- Kill PWA
+- www.wordzoo.com
 - Move modern-normalize to checked-in copy (to avoid remote-network local dev dependency)
+- Dynamic theme
