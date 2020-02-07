@@ -14,6 +14,7 @@ pages["copyright"] = { name: "Copyright", file: "wordzoo.com/jared-content/copyr
 
 pages["resume-cover"] = { name: "Résumé", title: "Jared Rhine Résumé", file: "resume-cover.md", link: "/resume/cover" }
 pages["resume-general"] = { name: "Résumé", file: "resume.md", no_title: true, link: "/resume" }
+pages["resume-full"] = { name: "Résumé", file: "resume-full.md", no_title: true, link: "/resume/full" }
 pages["tomo-design"] = { name: "Tomo design", file: "personal/information/tomo/tomo-design.md", no_title: true, link: "/projects/tomo-design" }
 pages["dx-is-key"] = { name: "DX is key", file: "dx-is-key.md", link: "/software/dx-is-key" }
 pages["k8s-cheatsheet"] = { name: "k8s cheatsheet", file: "computing/kubernetes/kubernetes-cheatsheet.md", no_title: true, link: "/software/k8s-cheatsheet" }

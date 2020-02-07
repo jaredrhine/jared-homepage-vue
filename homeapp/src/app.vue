@@ -1,5 +1,5 @@
 <template>
-  <div id="jared-page">
+  <div id="jared--container">
     <div id="sidebar">
       <header id="sidebar-top">
         <router-link to="/">
@@ -17,7 +17,7 @@
       </footer>
     </div>
 
-    <article id="jared">
+    <article id="jared--content">
       <main id="main">
         <router-view />
       </main>
@@ -26,12 +26,12 @@
 </template>
 
 <script>
-import Sidebar from "./components/sidebar.vue";
+import Sidebar from "./components/sidebar.vue"
 
 export default {
   name: "app",
-  components: { Sidebar }
-};
+  components: { Sidebar },
+}
 </script>
 
 <style lang="scss">
@@ -67,7 +67,8 @@ body {
   text-align: left;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin-block-start: 0;
 }
 
@@ -80,11 +81,11 @@ h2 {
   margin-block-end: 0.5rem;
 }
 
-#jared-page {
+#jared--container {
   width: 100vw;
 }
 
-#jared {
+#jared--content {
   display: block;
 
   @media (min-width: 980px) {

@@ -16,6 +16,8 @@
 - ~~markdown/main width~~
 - ~~tune titles~~
 - ~~markdown-body font skew from global~~
+- ~~replace markdown-vue-it with direct usage~~
+- Support mermaid in vue wrapper
 - Resume update
 - mobile breakpoint again
 - favicon
@@ -30,6 +32,10 @@
 - Vue onboarding
 - Naming guidelines
 - Tomo design polish
+- Link in git-procedures.md
+- Dynamic theming
+- Remove PWA
+- Tomo demo
 - Content is good enough
 - Remove Todo from pages/nav
 - `npm run deploy` around vue-cli S3 deploy plugin
