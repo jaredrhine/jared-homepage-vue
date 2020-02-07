@@ -21,11 +21,11 @@ pages["k8s-cheatsheet"] = { name: "k8s cheatsheet", file: "computing/kubernetes/
 pages["gcloud-cheatsheet"] = { name: "Gcloud cheatsheet", file: "computing/google-cloud/google-cloud-cheatsheet.md", link: "/software/gcloud-cheatsheet", no_title: true }
 pages["skills-inventory"] = { name: "Skills inventory", file: "skills-inventory.md", link: "/skills" }
 pages["todo"] = { name: "Todo", file: "/Users/jared/work/home/jared-homepage-vue/TODO.md", link: "/todo", no_title: true }
+pages["vue-onboarding"] = { name: "Vue onboarding", file: "/Users/jared/work/js/vue-onboarding/README.md", link: "/software/vue-onboarding", no_title: true }
 
 sws = <<EOM
 /software/management-style
 /software/naming-guidelines
-/software/vue-onboarding
 /software/unix-homebase
 /software/theta-design
 /tech-stack
@@ -44,11 +44,11 @@ navigation = %w(
   /software/vue-onboarding
   /software/k8s-cheatsheet
   /software/gcloud-cheatsheet
-  /software/naming-guidelines
-  /projects/tomo-design
   /content-todo
   /todo
 )
+#  /software/naming-guidelines
+#  /projects/tomo-design
 
 # kid-naming namespace
 # move todos to its own doc
@@ -140,7 +140,8 @@ pages.keys.each do |page|
   file = "wordzoo.com/jared-content/#{file}" if file =~ /^[\w\-\_\.]+\.md$/
   readfile = file.start_with?('/') ? file : "/Users/jared/projects/#{file}"
   content = File.open(readfile).read
-  md = content.gsub(/\A---(.|\n)*?---/, '')
+  md = content.gsub(/\A---(.|\n)*?---/, '').gsub(/^\/\/.*$/, '')
+
   fm = content[/\A---(.|\n)*?---/, 0]
   pages[page][:frontmatter] = YAML.load(fm) if fm
   pages[page][:body] = md

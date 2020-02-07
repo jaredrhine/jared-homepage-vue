@@ -17,9 +17,9 @@
 - ~~tune titles~~
 - ~~markdown-body font skew from global~~
 - ~~replace markdown-vue-it with direct usage~~
-- Support mermaid in vue wrapper
-- Resume update
+- WTF is up with bold?
 - mobile breakpoint again
+- Resume update
 - favicon
 - print CSS (for resume at least maybe)
 - Homepage tuning
@@ -30,7 +30,6 @@
 - Unix homebase
 - Theta design
 - Vue onboarding
-- Naming guidelines
 - Tomo design polish
 - Link in git-procedures.md
 - Dynamic theming
@@ -38,6 +37,10 @@
 - Tomo demo
 - Content is good enough
 - Remove Todo from pages/nav
+- Support mermaid in vue wrapper
+- Naming guidelines
+- Add search
+- Add highlighting, integrated with search: https://github.com/snowyu/markdown-it-highlight-i/blob/master/index.js
 - `npm run deploy` around vue-cli S3 deploy plugin
 - Try to trace fat webpack bundle, trim. Apologize in colophon.
 - Kill PWA

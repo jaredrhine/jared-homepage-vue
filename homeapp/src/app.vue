@@ -125,7 +125,10 @@ h2 {
 #sidebar-toc {
   grid-area: sidebar-toc;
   height: auto;
-  overflow: auto;
+
+  @media (min-width: 980px) {
+    overflow: auto;
+  }
 
   background-color: var(--jared--color-alpha--light10);
 
@@ -181,7 +184,7 @@ h2 {
 }
 
 .markdown-body {
-  font-family: var(--jared--font-base) !important;
+  // font-family: var(--jared--font-base) !important;
   color: var(--jared--text-color) !important;
 }
 
