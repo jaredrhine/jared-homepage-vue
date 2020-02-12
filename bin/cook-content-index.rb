@@ -19,9 +19,10 @@ pages["tomo-design"] = { name: "Tomo design", file: "personal/information/tomo/t
 pages["dx-is-key"] = { name: "DX is key", file: "dx-is-key.md", link: "/software/dx-is-key" }
 pages["k8s-cheatsheet"] = { name: "k8s cheatsheet", file: "computing/kubernetes/kubernetes-cheatsheet.md", no_title: true, link: "/software/k8s-cheatsheet" }
 pages["gcloud-cheatsheet"] = { name: "Gcloud cheatsheet", file: "computing/google-cloud/google-cloud-cheatsheet.md", link: "/software/gcloud-cheatsheet", no_title: true }
-pages["skills-inventory"] = { name: "Skills inventory", file: "skills-inventory.md", link: "/skills" }
+pages["skills-inventory"] = { name: "Skills inventory", link: "/skills" }
 pages["todo"] = { name: "Todo", file: "/Users/jared/work/home/jared-homepage-vue/TODO.md", link: "/todo", no_title: true }
 pages["vue-onboarding"] = { name: "Vue onboarding", file: "/Users/jared/work/js/vue-onboarding/README.md", link: "/software/vue-onboarding", no_title: true }
+
 
 sws = <<EOM
 /software/management-style
