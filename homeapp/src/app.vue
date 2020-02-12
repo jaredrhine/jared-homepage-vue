@@ -38,7 +38,8 @@ export default {
 /* prettier-ignore */
 :root {
   --jared--font-jared-temp: "Avenir", Helvetica, Arial, sans-serif;
-  --jared--font-markdown: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  // --jared--font-markdown: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  --jared--font-markdown: Helvetica,Arial,sans-serif;
   --jared--font-mono: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Menlo, Monaco, "Courier New", Courier, monospace;
   --jared--font-base: var(--jared--font-markdown);
   --jared--color-alpha-h: 140;
@@ -65,6 +66,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
+
+  & a {
+    text-decoration: underline;
+  }
 }
 
 h1,
@@ -78,11 +83,16 @@ h1 {
 }
 
 h2 {
-  margin-block-end: 0.5rem;
+  margin-block-end: 0.4rem;
 }
 
 #jared--container {
   width: 100vw;
+  line-height: 1.35rem;
+
+  & h1 {
+    line-height: 2rem;
+  }
 }
 
 #jared--content {
@@ -110,6 +120,14 @@ h2 {
 #sidebar {
   height: 12rem;
   overflow: auto;
+
+  & a {
+    text-decoration: none;
+  }
+
+  & a:hover {
+    text-deocration: underline;
+  }
 
   @media (min-width: 980px) {
     display: grid;
@@ -149,6 +167,7 @@ h2 {
       background-color: var(--jared--color-alpha);
       padding: 0.2rem 0.5rem 0.2rem 0.5rem;
     }
+
   }
 }
 
@@ -207,6 +226,10 @@ h2 {
 .markdown-body h2 {
   border-bottom: 0 !important;
 }
+
+// .markdown-body h2 {
+//   padding-bottom: 0.2rem !important;
+// }
 
 .markdown-body blockquote {
   color: var(--jared--text-color) !important;

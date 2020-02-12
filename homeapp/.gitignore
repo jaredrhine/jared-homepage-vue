@@ -1,3 +1,5 @@
+src/assets/content.json
+
 .DS_Store
 node_modules
 /dist

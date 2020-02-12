@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1 v-if="pageTitle" v-html="pageTitle" />
-    <div class="markdown-body" ref="markdown-container" />
+    <div ref="markdown-container" />
   </div>
 </template>
 
@@ -9,7 +9,6 @@
 import content from "../assets/content.json"
 
 import MarkdownIt from "markdown-it"
-import "github-markdown-css"
 
 export default {
   name: "home",

@@ -41,6 +41,8 @@
 - Naming guidelines
 - Add search
 - Add highlighting, integrated with search: https://github.com/snowyu/markdown-it-highlight-i/blob/master/index.js
+- key topics, CSS: box model. cascade and specificity.
+- key topics, JS: events, bubbling.
 - `npm run deploy` around vue-cli S3 deploy plugin
 - Try to trace fat webpack bundle, trim. Apologize in colophon.
 - Kill PWA
