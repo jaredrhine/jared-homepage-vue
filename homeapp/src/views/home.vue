@@ -9,6 +9,7 @@
 import content from "../assets/content.json"
 
 import MarkdownIt from "markdown-it"
+import markdownItGithubToc from "markdown-it-github-toc"
 
 export default {
   name: "home",
@@ -29,11 +30,12 @@ export default {
       immediate: true,
       handler(val) {
         const options = { typographer: true }
-        let md = new MarkdownIt(options)
+        const tocOptions = { anchorLink: false }
+        let md = new MarkdownIt(options).use(markdownItGithubToc, tocOptions)
         this.$nextTick(() => {
-          this.$refs['markdown-container'].innerHTML = md.render(val)
+          this.$refs["markdown-container"].innerHTML = md.render(val)
         })
-      }
+      },
     },
   },
   computed: {

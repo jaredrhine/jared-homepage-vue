@@ -12,7 +12,7 @@ pages["homepage"] = { name: "Homepage", file: "homepage.md", no_title: true, lin
 pages["colophon"] = { name: "Colophon", file: "colophon.md", link: "/colophon" }
 pages["copyright"] = { name: "Copyright", file: "wordzoo.com/jared-content/copyright.md", link: "/copyright", no_title: true }
 
-pages["resume-cover"] = { name: "Résumé", title: "Jared Rhine Résumé", file: "resume-cover.md", link: "/resume/cover" }
+pages["resume-cover"] = { name: "Résumé", title: "Jared Rhine Résumé", file: "resume-cover.md", link: "/resume/cover", no_title: true }
 pages["resume-general"] = { name: "Résumé", file: "resume.md", no_title: true, link: "/resume" }
 pages["resume-full"] = { name: "Résumé", file: "resume-full.md", no_title: true, link: "/resume/full" }
 pages["tomo-design"] = { name: "Tomo design", file: "personal/information/tomo/tomo-design.md", no_title: true, link: "/projects/tomo-design" }
@@ -22,7 +22,8 @@ pages["gcloud-cheatsheet"] = { name: "Gcloud cheatsheet", file: "computing/googl
 pages["skills-inventory"] = { name: "Skills inventory", link: "/skills" }
 pages["todo"] = { name: "Todo", file: "/Users/jared/work/home/jared-homepage-vue/TODO.md", link: "/todo", no_title: true }
 pages["vue-onboarding"] = { name: "Vue onboarding", file: "/Users/jared/work/js/vue-onboarding/README.md", link: "/software/vue-onboarding", no_title: true }
-
+pages["xencd"] = { name: "Project: XenCD", file: "xencd-announce.md", link: "/project/xencd" }
+pages["tips"] = { name: "Tech tips", file: "tips.md", link: "/tech-tips" }
 
 sws = <<EOM
 /software/management-style
@@ -40,11 +41,15 @@ navigation = %w(
   /skills
   /software/management-style
   /software/dx-is-key
+  --
+  /tech-tips
   /software/unix-homebase
   /software/theta-design
   /software/vue-onboarding
   /software/k8s-cheatsheet
   /software/gcloud-cheatsheet
+  /project/xencd
+  --
   /content-todo
   /todo
 )

@@ -17,6 +17,7 @@
 - ~~tune titles~~
 - ~~markdown-body font skew from global~~
 - ~~replace markdown-vue-it with direct usage~~
+- horizontal scroll exists, fix
 - WTF is up with bold?
 - mobile breakpoint again
 - Resume update

@@ -239,4 +239,8 @@ h2 {
 .hljs {
   color: var(--jared--text-color) !important;
 }
+
+.markdownIt-TOC {
+  list-style: none;
+}
 </style>

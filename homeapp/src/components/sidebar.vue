@@ -1,7 +1,8 @@
 <template>
   <div>
     <div v-for="(link, index) in links" v-bind:key="index">
-      <router-link :to="link.route">{{ link.text }}</router-link> <br />
+      <br v-if="link == '--'" />
+      <router-link v-else :to="link.route">{{ link.text }}</router-link> <br />
     </div>
   </div>
 </template>
