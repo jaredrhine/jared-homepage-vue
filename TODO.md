@@ -17,27 +17,31 @@
 - ~~tune titles~~
 - ~~markdown-body font skew from global~~
 - ~~replace markdown-vue-it with direct usage~~
+- ~~favicon~~
+- Prune back to an MVP
+- Remove Todo from pages/nav
+- Resume update
+- Mangement style
+- DX is key
+- Homepage tuning
+- Unix homebase
+- Public launch
+- Resume-full updated for reference
+- www.wordzoo.com
+- Remove PWA
+- Vue onboarding
+- Theta design
 - horizontal scroll exists, fix
 - WTF is up with bold?
 - mobile breakpoint again
-- Resume update
-- favicon
 - print CSS (for resume at least maybe)
-- Homepage tuning
 - Tech stack
 - Skills inventory
-- Mangement style
-- DX is key
-- Unix homebase
-- Theta design
-- Vue onboarding
 - Tomo design polish
 - Link in git-procedures.md
 - Dynamic theming
-- Remove PWA
 - Tomo demo
 - Content is good enough
-- Remove Todo from pages/nav
 - Support mermaid in vue wrapper
 - Naming guidelines
 - Add search
@@ -46,7 +50,5 @@
 - key topics, JS: events, bubbling.
 - `npm run deploy` around vue-cli S3 deploy plugin
 - Try to trace fat webpack bundle, trim. Apologize in colophon.
-- Kill PWA
-- www.wordzoo.com
 - Move modern-normalize to checked-in copy (to avoid remote-network local dev dependency)
 - Dynamic theme

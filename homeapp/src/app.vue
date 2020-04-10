@@ -167,7 +167,6 @@ h2 {
       background-color: var(--jared--color-alpha);
       padding: 0.2rem 0.5rem 0.2rem 0.5rem;
     }
-
   }
 }
 
