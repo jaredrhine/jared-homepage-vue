@@ -7,6 +7,21 @@
     <p>Senior technologist: Software management, architecture, and mentorship.</p>
 
     <p>Web full-stack software development: TypeScript. Vue.js. Rails. HTML/JS/CSS. Web components. Reactive apps.</p>
+
+    <div class="searchControls">
+      search: <input v-model="searchText"/>
+    </div>
+
+    <div class="skillsResults">
+      <div
+       v-for="(skill, name, index) in results"
+       :key="index"
+       class="skillBlock">
+        {{ name }}
+        &rarr;
+        <span v-if="results[name]['level'] == 'expert'">Expert</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -37,18 +52,44 @@
 // Java. C. Scheme.
 // Graph theory.
 
+/*
+
+Dimensions:
+- expert
+- none (not a skill)
+- used to be an expert
+- use frequently in my current day job
+- have sysadmin'ed in production
+- fond
+- if i was building a startup
+- it's better than you think
+- is a vendor
+
+Search
+
+*/
+
 export default {
   name: "skills",
   data() {
     return {
+      searchText: "",
       skills: {
         "TypeScript": {
           "category": "frontend",
         },
         "SumoLogic": {
           "tags": ["ran-in-prod"]
+        },
+        "TCP/IP Networking": {
+          "level": "expert"
         }
       }
+    }
+  },
+  computed: {
+    results: function () {
+      return this.skills
     }
   }
 }

@@ -38,21 +38,21 @@ navigation = %w(
   /
   /resume/cover
   /tech-stack
-  /skills
   /software/management-style
   /software/dx-is-key
   --
-  /tech-tips
   /software/unix-homebase
-  /software/theta-design
   /software/vue-onboarding
   /software/k8s-cheatsheet
   /software/gcloud-cheatsheet
   /project/xencd
-  --
-  /content-todo
-  /todo
 )
+# /software/theta-design
+#  --
+# /skills
+#  /content-todo
+#  /todo
+# /tech-tips
 #  /software/naming-guidelines
 #  /projects/tomo-design
 
