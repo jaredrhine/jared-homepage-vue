@@ -20,8 +20,8 @@ pages["dx-is-key"] = { name: "DX is key", file: "dx-is-key.md", link: "/software
 pages["k8s-cheatsheet"] = { name: "k8s cheatsheet", file: "computing/kubernetes/kubernetes-cheatsheet.md", no_title: true, link: "/software/k8s-cheatsheet" }
 pages["gcloud-cheatsheet"] = { name: "Gcloud cheatsheet", file: "computing/google-cloud/google-cloud-cheatsheet.md", link: "/software/gcloud-cheatsheet", no_title: true }
 pages["skills-inventory"] = { name: "Skills inventory", link: "/skills" }
-pages["todo"] = { name: "Todo", file: "/Users/jared/work/home/jared-homepage-vue/TODO.md", link: "/todo", no_title: true }
-pages["vue-onboarding"] = { name: "Vue onboarding", file: "/Users/jared/work/js/vue-onboarding/README.md", link: "/software/vue-onboarding", no_title: true }
+pages["todo"] = { name: "Todo", file: "/home/jared/work/home/jared-homepage-vue/TODO.md", link: "/todo", no_title: true }
+pages["vue-onboarding"] = { name: "Vue onboarding", file: "/home/jared/work/js/vue-onboarding/README.md", link: "/software/vue-onboarding", no_title: true }
 pages["xencd"] = { name: "Project: XenCD", file: "xencd-announce.md", link: "/project/xencd" }
 pages["tips"] = { name: "Tech tips", file: "tips.md", link: "/tech-tips" }
 
@@ -144,7 +144,7 @@ pages.keys.each do |page|
   file = pages[page][:file]
   next unless file
   file = "wordzoo.com/jared-content/#{file}" if file =~ /^[\w\-\_\.]+\.md$/
-  readfile = file.start_with?('/') ? file : "/Users/jared/projects/#{file}"
+  readfile = file.start_with?('/') ? file : "/home/jared/projects/#{file}"
   content = File.open(readfile).read
   md = content.gsub(/\A---(.|\n)*?---/, '').gsub(/^\/\/.*$/, '')
 

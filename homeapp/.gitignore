@@ -1,13 +1,14 @@
+# app
 src/assets/content.json
-
-.DS_Store
-node_modules
 /dist
-
 /tests/e2e/videos/
 /tests/e2e/screenshots/
 
+# js standard
+node_modules
+
 # local env files
+.envrc
 .env.local
 .env.*.local
 
@@ -24,3 +25,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+.DS_Store

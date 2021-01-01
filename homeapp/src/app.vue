@@ -1,24 +1,24 @@
 <template>
-  <div id="jared--container">
-    <div id="sidebar">
-      <header id="sidebar-top">
+  <div id="jared-container">
+    <div id="jared-sidebar">
+      <header id="jared-sidebar--top">
         <router-link to="/">
           <img width="90" src="@/assets/jared-profile-crater-lake-headshot.png" />
         </router-link>
       </header>
 
-      <nav id="sidebar-toc">
+      <nav id="jared-sidebar--toc">
         <sidebar @change-route="helpRaise()" />
       </nav>
 
-      <footer id="sidebar-bottom">
+      <footer id="jared-sidebar--bottom">
         <router-link to="/colophon">Colophon</router-link> <br />
         <router-link to="/copyright">Copyright</router-link>
       </footer>
     </div>
 
-    <article id="jared--content">
-      <main id="main">
+    <article id="jared-content">
+      <main id="jared-content--main">
         <router-view />
       </main>
     </article>
@@ -53,141 +53,115 @@ export default {
   --jared--color-grey--80: hsl(0,0%,73.4%); /* #bbb */
 }
 
-html,
 body {
-  width: 100vh;
-  height: 100vh;
-}
-
-body {
+  // font-family: var(--jared--font-base);
   background-color: var(--jared--color-alpha);
   color: var(--jared--text-color);
-  font-family: var(--jared--font-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: left;
+}
 
-  & a {
-    text-decoration: underline;
-  }
+a {
+  text-decoration: underline;
 }
 
 h1,
-h2 {
+h2,
+h3 {
   margin-block-start: 0;
+  margin-block-end: 0;
+  line-height: 1.3rem;
 }
 
 h1 {
-  font-size: 2em;
-  margin-block-end: 0.6rem;
+  font-size: 1.85em;
+  line-height: 2rem;
 }
 
-h2 {
-  margin-block-end: 0.4rem;
+#jared-container {
+  --jared-sidebar-width: 9.5rem;
+  line-height: 1.3rem;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "sidebar" "content";
 }
 
-#jared--container {
-  width: 100vw;
-  line-height: 1.35rem;
-
-  & h1 {
-    line-height: 2rem;
-  }
+#jared-content,
+#jared-sidebar {
+  padding: 0.6rem;
 }
 
-#jared--content {
-  display: block;
-
-  @media (min-width: 980px) {
-    display: grid;
-    grid-template-columns: 14rem auto;
-    grid-template-areas: "main";
-  }
+#jared-content {
+  grid-area: content;
 }
 
-#main {
-  grid-area: main;
+#jared-sidebar {
+  grid-area: sidebar;
 
-  @media (min-width: 980px) {
-    grid-column-start: 2;
-  }
+  display: grid;
+  grid-template-columns: none;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "sidebar-top" "sidebar-toc" "sidebar-bottom";
 
-  // width: inherit;
-  // height: 100vh;
-  padding: 1rem;
-}
-
-#sidebar {
-  height: 12rem;
-  overflow: auto;
+  background-color: var(--jared--color-alpha--light10);
+  font-size: 0.85rem;
 
   & a {
     text-decoration: none;
-  }
-
-  & a:hover {
-    text-deocration: underline;
-  }
-
-  @media (min-width: 980px) {
-    display: grid;
-    position: fixed;
-    width: 14rem;
-    height: 100vh;
-    grid-template-areas: "sidebar-top" "sidebar-toc" "sidebar-bottom";
-    grid-template-columns: auto;
-    grid-template-rows: auto 1fr auto;
-  }
-}
-
-#sidebar-toc {
-  grid-area: sidebar-toc;
-  height: auto;
-
-  @media (min-width: 980px) {
-    overflow: auto;
-  }
-
-  background-color: var(--jared--color-alpha--light10);
-
-  line-height: 1.5rem;
-
-  padding: 1rem;
-  padding-left: 0.5rem;
-  padding-top: 0;
-
-  a {
-    // font-weight: bold;
-    // color: #2c3e50;
     padding-left: 0.5rem;
 
+    &:hover {
+      text-decoration: underline;
+    }
+
     &.router-link-exact-active {
-      // margin-top: 1rem;
-      font-size: 1.2rem;
       background-color: var(--jared--color-alpha);
       padding: 0.2rem 0.5rem 0.2rem 0.5rem;
     }
   }
 }
 
-#sidebar-top {
-  float: right;
+// revisit breakpoints
 
-  @media (min-width: 980px) {
-    float: none;
+@media screen and (max-width: 768px) {
+  #jared-container {
+    font-size: 0.93rem;
+  }
+}
+
+@media screen and (min-width: 568px) {
+  #jared-container {
+    grid-template-rows: none;
+    grid-template-columns: var(--jared-sidebar-width) minmax(300px, 1100px); // 1fr; // minmax(1fr, 1200px); // auto 1fr; // can't auto in col 1?
+    grid-template-areas: "sidebar content";
   }
 
+  #jared-sidebar {
+    width: var(--jared-sidebar-width);
+    height: 100vh;
+    position: fixed;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto;
+  }
+}
+
+#jared-sidebar--top {
   grid-area: sidebar-top;
-  background-color: var(--jared--color-alpha--light10);
-  padding: 1rem;
 }
 
-#sidebar-bottom {
+#jared-sidebar--toc {
+  grid-area: sidebar-toc;
+  overflow: auto;
+  min-height: 5rem;
+}
+
+#jared-sidebar--bottom {
   grid-area: sidebar-bottom;
-  background-color: var(--jared--color-alpha--light10);
-  padding: 1rem;
+  margin-top: 1rem;
 }
 
+/*
 #header {
   grid-area: header;
   padding: 1rem;
@@ -202,7 +176,7 @@ h2 {
 }
 
 .markdown-body {
-  // font-family: var(--jared--font-base) !important;
+  font-family: var(--jared--font-base) !important;
   color: var(--jared--text-color) !important;
 }
 
@@ -226,15 +200,15 @@ h2 {
   border-bottom: 0 !important;
 }
 
-// .markdown-body h2 {
-//   padding-bottom: 0.2rem !important;
-// }
+.markdown-body h2 {
+  padding-bottom: 0.2rem !important;
+}
 
 .markdown-body blockquote {
   color: var(--jared--text-color) !important;
 }
 
-/* wat */
+// wat
 .hljs {
   color: var(--jared--text-color) !important;
 }
@@ -242,4 +216,5 @@ h2 {
 .markdownIt-TOC {
   list-style: none;
 }
+*/
 </style>

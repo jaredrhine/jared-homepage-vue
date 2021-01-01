@@ -29,7 +29,7 @@ export default {
     pageSource: {
       immediate: true,
       handler(val) {
-        const options = { typographer: true }
+        const options = { typographer: true, html: true }
         const tocOptions = { anchorLink: false }
         let md = new MarkdownIt(options).use(markdownItGithubToc, tocOptions)
         this.$nextTick(() => {
