@@ -39,22 +39,22 @@ export default {
     },
   },
   computed: {
-    pageId: function() {
+    pageId: function () {
       let page = content.default_page
       const indexNavPage = content.routes[this.path]
       if (indexNavPage && content.pages[indexNavPage]) page = indexNavPage
       return page
     },
-    pageSource: function() {
+    pageSource: function () {
       const body = this.page?.body
       return body ? body : ""
     },
-    pageTitle: function() {
+    pageTitle: function () {
       if (this.page?.no_title) return
       const title = this.page?.title || this.page?.frontmatter?.title || this.page?.name
       return title
     },
-    page: function() {
+    page: function () {
       return content.pages[this.pageId]
     },
   },

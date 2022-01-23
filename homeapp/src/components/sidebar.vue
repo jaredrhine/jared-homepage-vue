@@ -12,10 +12,10 @@ import content from "../assets/content.json"
 
 export default {
   computed: {
-    links: function() {
+    links: function () {
       const list = content.navigation
       const output = []
-      list.forEach(link => {
+      list.forEach((link) => {
         const page = content.routes[link]
         const name = content.pages[page]?.name
         output.push({ route: link, text: name })

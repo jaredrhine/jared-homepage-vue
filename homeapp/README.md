@@ -1,4 +1,4 @@
-# homeapp
+# Jared Rhine vue+markdown homepage
 
 ## Project setup
 
@@ -12,10 +12,10 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Watches for content changes and recooks content.json
 
 ```shell
-npm run build
+fswatch -m poll_monitor -r bin/cook-content-index.rb ~/projects/wordzoo.com/jared-content/ | xargs -t -n1 sh -c bin/cook-content-index.rb
 ```
 
 ### Run your unit tests
@@ -36,6 +36,18 @@ npm run test:e2e
 npm run lint
 ```
 
+### Compiles and minifies for production
+
+```shell
+npm run build
+```
+
+### Deploy to production
+
+```shell
+npm run deploy
+```
+
 ### Customize configuration
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See [vue-cli configuration reference](https://cli.vuejs.org/config/).

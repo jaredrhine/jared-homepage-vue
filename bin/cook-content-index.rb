@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-
 require 'json'
 require 'yaml'
 
@@ -154,8 +153,12 @@ pages.keys.each do |page|
   pages[page].delete(:file)
 end
 
-#json = JSON.generate(index)
-json = JSON.pretty_generate(index)
+File.open(output_file, 'w').write(JSON.pretty_generate(index))
 
-fh = File.open(output_file, 'w')
-fh.write(json)
+# all to just strip comments, wat
+skills_in_filename = '/home/jared/projects/wordzoo.com/jared-content/skills.json'
+skills_out_filename = 'homeapp/src/assets/skills.json'
+skills_file_filtered_string = File.open(skills_in_filename).readlines.reject {|line| line =~ /^\s*\/\// }.join("\n")
+new_skills = JSON.parse(skills_file_filtered_string)
+mapped_skills_json = JSON.pretty_generate(new_skills)
+File.open(skills_out_filename, 'w').write(mapped_skills_json)

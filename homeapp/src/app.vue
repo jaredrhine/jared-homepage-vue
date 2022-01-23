@@ -2,9 +2,9 @@
   <div id="jared-container">
     <div id="jared-sidebar">
       <header id="jared-sidebar--top">
-        <router-link to="/">
+        <a href="/">
           <img width="90" src="@/assets/jared-profile-crater-lake-headshot.png" />
-        </router-link>
+        </a>
       </header>
 
       <nav id="jared-sidebar--toc">
@@ -94,6 +94,7 @@ h1 {
 
 #jared-content {
   grid-area: content;
+  line-height: 1.45rem;
 }
 
 #jared-sidebar {

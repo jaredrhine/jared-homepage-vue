@@ -1,5 +1,6 @@
 # app
 src/assets/content.json
+src/assets/skills.json
 /dist
 /tests/e2e/videos/
 /tests/e2e/screenshots/

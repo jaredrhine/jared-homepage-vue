@@ -52,3 +52,4 @@
 - Try to trace fat webpack bundle, trim. Apologize in colophon.
 - Move modern-normalize to checked-in copy (to avoid remote-network local dev dependency)
 - Dynamic theme
+- HTTP/3 hosting
