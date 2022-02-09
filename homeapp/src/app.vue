@@ -194,6 +194,7 @@ h1 {
 
 .markdown-body table tr {
   background-color: var(--jared--color-alpha) !important;
+  border: 1px solid black;
 }
 
 .markdown-body h1,
