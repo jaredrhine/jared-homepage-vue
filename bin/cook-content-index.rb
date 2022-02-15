@@ -12,7 +12,7 @@ pages["colophon"] = { name: "Colophon", file: "colophon.md", link: "/colophon" }
 pages["copyright"] = { name: "Copyright", file: "wordzoo.com/jared-content/copyright.md", link: "/copyright", no_title: true }
 
 pages["resume-cover"] = { name: "Résumé", title: "Jared Rhine Résumé", file: "resume-cover.md", link: "/resume/cover", no_title: true }
-pages["resume-general"] = { name: "Résumé", file: "resume.md", no_title: true, link: "/resume" }
+pages["resume-summary"] = { name: "Résumé", file: "resume.md", no_title: true, link: "/resume" }
 pages["resume-full"] = { name: "Résumé", file: "resume-full.md", no_title: true, link: "/resume/full" }
 pages["tomo-design"] = { name: "Tomo design", file: "personal/information/tomo/tomo-design.md", no_title: true, link: "/projects/tomo-design" }
 pages["dx-is-key"] = { name: "DX is key", file: "dx-is-key.md", link: "/software/dx-is-key" }
@@ -37,15 +37,15 @@ navigation = %w(
   /
   /resume/cover
   /tech-stack
-  /software/management-style
-  /software/dx-is-key
   --
   /software/unix-homebase
   /software/vue-onboarding
-  /software/k8s-cheatsheet
-  /software/gcloud-cheatsheet
   /project/xencd
 )
+# /software/management-style
+# /software/dx-is-key
+# /software/k8s-cheatsheet
+# /software/gcloud-cheatsheet
 # /software/theta-design
 #  --
 # /skills

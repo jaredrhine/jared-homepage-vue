@@ -48,9 +48,16 @@ export default {
   --jared--color-alpha: hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), var(--jared--color-alpha-l));
   --jared--color-alpha--light10: hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) + 10%));
   --jared--color-alpha--light15: hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) + 15%));
-  --jared--text-color: hsl(60, 85%, 80%);
+  --jared--color-beta-h: 60;
+  --jared--color-beta-s: 85%;
+  --jared--color-beta-l: 80%;
+  --jared--color-beta: hsl(var(--jared--color-beta-h), var(--jared--color-beta-s), var(--jared--color-beta-l));
+  --jared--color-beta--light10: hsl(var(--jared--color-beta-h), var(--jared--color-beta-s), calc(var(--jared--color-beta-l) + 10%));
+  --jared--color-beta--dark45: hsl(var(--jared--color-beta-h), var(--jared--color-beta-s), calc(var(--jared--color-beta-l) - 45%));
   --jared--color-grey--50: hsl(0,0%,50%);
   --jared--color-grey--80: hsl(0,0%,73.4%); /* #bbb */
+  --jared--text-color: var(--jared--color-beta);
+  --jared--link-underline-color: var(--jared--color-beta--dark45);
 }
 
 body {
@@ -63,6 +70,7 @@ body {
 
 a {
   text-decoration: underline;
+  text-decoration-color: var(--jared--link-underline-color);
 }
 
 h1,
