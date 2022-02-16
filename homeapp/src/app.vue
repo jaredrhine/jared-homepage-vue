@@ -86,6 +86,19 @@ h1 {
   line-height: 2rem;
 }
 
+table,
+th,
+td {
+  border: 1px solid var(--jared--color-beta);
+  border-collapse: collapse;
+  padding: 0 0.4rem;
+  vertical-align: top;
+}
+
+thead {
+  vertical-align: bottom;
+}
+
 #jared-container {
   --jared-sidebar-width: 9.5rem;
   line-height: 1.3rem;
