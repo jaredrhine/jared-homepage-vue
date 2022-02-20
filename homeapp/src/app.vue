@@ -86,6 +86,11 @@ h1 {
   line-height: 2rem;
 }
 
+h2,
+h3 {
+  margin-bottom: 0.5rem;
+}
+
 table,
 th,
 td {
@@ -93,6 +98,10 @@ td {
   border-collapse: collapse;
   padding: 0 0.4rem;
   vertical-align: top;
+}
+
+table {
+  margin-bottom: 1rem;
 }
 
 thead {

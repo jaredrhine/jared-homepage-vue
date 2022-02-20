@@ -1,5 +1,6 @@
 <template>
   <div>
+    <strong>Jared Rhine</strong>
     <div v-for="(link, index) in links" v-bind:key="index">
       <br v-if="link == '--'" />
       <router-link v-else :to="link.route">{{ link.text }}</router-link> <br />
