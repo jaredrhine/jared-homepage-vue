@@ -48,6 +48,8 @@ npm run build
 npm run deploy
 ```
 
+Deploy is done via `rclone` on the files in the `dist` directory created by the `build` step.
+
 ### Customize configuration
 
 See [vue-cli configuration reference](https://cli.vuejs.org/config/).
