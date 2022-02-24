@@ -1,5 +1,5 @@
 <template>
-  <div id="jared-container">
+  <div id="jared-container" class="jared-container--alt">
     <div id="jared-sidebar">
       <header id="jared-sidebar--top">
         <a href="/">
@@ -48,6 +48,9 @@ export default {
   --jared--color-alpha: hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), var(--jared--color-alpha-l));
   --jared--color-alpha--light10: hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) + 10%));
   --jared--color-alpha--light15: hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) + 15%));
+  --jared--color-alpha--dark5: hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) - 5%));
+  --jared--color-alpha--dark10: hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) - 10%));
+  --jared--color-alpha--dark15: hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) - 15%));
   --jared--color-beta-h: 60;
   --jared--color-beta-s: 85%;
   --jared--color-beta-l: 80%;
@@ -88,7 +91,11 @@ h1 {
 
 h2,
 h3 {
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+table {
+  margin-top: 0.5rem;
 }
 
 table,
@@ -106,6 +113,15 @@ table {
 
 thead {
   vertical-align: bottom;
+}
+
+p > code,
+li > code,
+dd > code,
+td > code {
+  background-color: var(--jared--color-alpha--dark5);
+  border-radius: 0.2rem;
+  padding: 0.05rem 0.15rem;
 }
 
 #jared-container {
