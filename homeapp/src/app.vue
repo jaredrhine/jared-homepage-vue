@@ -136,10 +136,6 @@ body {
     margin-top: var(--jared--spacing--xl);
   }
 
-  table {
-    margin-top: var(--jared--spacing--md);
-  }
-
   table,
   th,
   td {
@@ -150,7 +146,7 @@ body {
 
   table {
     margin-top: var(--jared--spacing--xl);
-    margin-bottom: var(--jared--spacing--lg);
+    margin-bottom: var(--jared--spacing--4xl);
   }
 
   thead {
