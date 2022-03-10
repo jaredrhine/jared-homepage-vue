@@ -90,6 +90,8 @@ export default {
   --jared--spacing--gap-md: calc(var(--jared--spacing--4xl) * 2.5);
   --jared--spacing--gap-lg: calc(var(--jared--spacing--gap-md) * 2);
 
+  --jared--text--sm: 0.875rem;
+  --jared--text--md: 1.00rem;
   --jared--text--2xl: 2.00rem;
   --jared--text--3xl: 2.75rem;
 
@@ -104,135 +106,137 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  text-decoration: underline;
-  text-decoration-color: var(--jared--link-underline-color);
-}
+@media screen {
+  a {
+    text-decoration: underline;
+    text-decoration-color: var(--jared--link-underline-color);
+  }
 
-h1,
-h2,
-h3 {
-  margin-block-start: 0;
-  margin-block-end: 0;
-  line-height: 1.3rem;
-}
+  h1,
+  h2,
+  h3 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    line-height: 1.3rem;
+  }
 
-h1 {
-  font-size: var(--jared--text--3xl);
-  line-height: var(--jared--text--3xl);
-  margin-top: var(--jared--spacing--xl);
-  margin-bottom: var(--jared--spacing--xl);
-}
+  h1 {
+    font-size: var(--jared--text--3xl);
+    line-height: var(--jared--text--3xl);
+    margin-top: var(--jared--spacing--xl);
+    margin-bottom: var(--jared--spacing--xl);
+  }
 
-h1:first-of-type {
-  margin-top: 0;
-}
+  h1:first-of-type {
+    margin-top: 0;
+  }
 
-h2,
-h3 {
-  margin-top: var(--jared--spacing--xl);
-}
+  h2,
+  h3 {
+    margin-top: var(--jared--spacing--xl);
+  }
 
-table {
-  margin-top: var(--jared--spacing--md);
-}
+  table {
+    margin-top: var(--jared--spacing--md);
+  }
 
-table,
-th,
-td {
-  border: 1px solid var(--jared--color-beta);
-  border-collapse: collapse;
-  vertical-align: top;
-}
+  table,
+  th,
+  td {
+    border: 1px solid var(--jared--color-beta);
+    border-collapse: collapse;
+    vertical-align: top;
+  }
 
-table {
-  margin-top: var(--jared--spacing--xl);
-  margin-bottom: var(--jared--spacing--lg);
-}
+  table {
+    margin-top: var(--jared--spacing--xl);
+    margin-bottom: var(--jared--spacing--lg);
+  }
 
-thead {
-  vertical-align: bottom;
-}
+  thead {
+    vertical-align: bottom;
+  }
 
-th,
-td {
-  padding: var(--jared--spacing--md) var(--jared--spacing--md);
-}
+  th,
+  td {
+    padding: var(--jared--spacing--md) var(--jared--spacing--md);
+  }
 
-p,
-ul,
-ol {
-  margin-top: var(--jared--spacing--lg);
-  margin-bottom: 0;
-  line-height: var(--jared--text-line-height--lg);
-}
+  p,
+  ul,
+  ol {
+    margin-top: var(--jared--spacing--lg);
+    margin-bottom: 0;
+    line-height: var(--jared--text-line-height--lg);
+  }
 
-li {
-  margin: var(--jared--spacing--sm);
-  line-height: var(--jared--text-line-height--lg);
-}
+  li {
+    margin: var(--jared--spacing--sm);
+    line-height: var(--jared--text-line-height--lg);
+  }
 
-li ul {
-  margin-top: var(--jared--spacing--sm);
-}
+  li ul {
+    margin-top: var(--jared--spacing--sm);
+  }
 
-p > code,
-li > code,
-dd > code,
-td > code {
-  background-color: var(--jared--color-alpha--dark5);
-  border-radius: 0.2rem;
-  padding: 0.05rem 0.15rem;
-}
+  p > code,
+  li > code,
+  dd > code,
+  td > code {
+    background-color: var(--jared--color-alpha--dark5);
+    border-radius: 0.2rem;
+    padding: 0.05rem 0.15rem;
+  }
 
-#jared-container {
-  --jared-sidebar-width: 9.5rem;
-  line-height: 1.3rem;
+  #jared-container {
+    --jared-sidebar-width: 9.5rem;
+    line-height: 1.3rem;
 
-  display: grid;
-  grid-template-rows: auto 1fr;
-  grid-template-areas: "sidebar" "content";
-}
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "sidebar" "content";
+  }
 
-#jared-content,
-#jared-sidebar {
-  padding: 0.6rem;
-}
+  #jared-content,
+  #jared-sidebar {
+    padding: 0.6rem;
+  }
 
-#jared-content {
-  grid-area: content;
-}
+  #jared-content {
+    grid-area: content;
+  }
 
-#jared-sidebar {
-  grid-area: sidebar;
+  #jared-sidebar {
+    grid-area: sidebar;
 
-  display: grid;
-  grid-template-columns: none;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas: "sidebar-top" "sidebar-toc" "sidebar-bottom";
+    display: grid;
+    grid-template-columns: none;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "sidebar-top" "sidebar-toc" "sidebar-bottom";
 
-  background-color: var(--jared--color-alpha--light10);
-  font-size: 0.85rem;
+    background-color: var(--jared--color-alpha--light10);
+    font-size: var(--jared--text--sm);
 
-  & a {
-    text-decoration: none;
-    padding-left: 0.5rem;
+    & a {
+      text-decoration: none;
+      padding-left: var(--jared--spacing--md);
 
-    &:hover {
-      text-decoration: underline;
-    }
+      &:hover {
+        text-decoration: underline;
+      }
 
-    &.router-link-exact-active {
-      background-color: var(--jared--color-alpha);
-      padding: var(--jared--spacing--2xs) var(--jared--spacing--md);
+      &.router-link-exact-active {
+        background-color: var(--jared--color-alpha);
+        padding: var(--jared--spacing--2xs) var(--jared--spacing--md);
+      }
     }
   }
-}
 
-/* TODO: revisit breakpoints */
+  /* TODO: revisit breakpoints */
 
-#jared-container {
-  font-size: var(--jared--font-base--size--smallphone);
+  #jared-container {
+    font-size: var(--jared--font-base--size--smallphone);
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -269,33 +273,62 @@ td > code {
   }
 }
 
-#jared-sidebar--top {
-  grid-area: sidebar-top;
+@media screen {
+  #jared-sidebar--top {
+    grid-area: sidebar-top;
+  }
+
+  #jared-sidebar--toc {
+    grid-area: sidebar-toc;
+    overflow: auto;
+    min-height: 5rem;
+  }
+
+  #jared-sidebar--bottom {
+    grid-area: sidebar-bottom;
+    margin-top: var(--jared--spacing--2xl);
+  }
+
+  #footer {
+    grid-area: footer;
+    padding: var(--jared--spacing--2xl);
+    display: none;
+  }
+
+  #jared-homepage--opener {
+    margin-top: var(--jared--spacing--gap-lg);
+  }
+
+  #jared-homepage--middle {
+    margin: var(--jared--spacing--gap-md) 0;
+  }
 }
 
-#jared-sidebar--toc {
-  grid-area: sidebar-toc;
-  overflow: auto;
-  min-height: 5rem;
-}
+@media print {
+  #jared-sidebar {
+    display: none;
+  }
 
-#jared-sidebar--bottom {
-  grid-area: sidebar-bottom;
-  margin-top: var(--jared--spacing--2xl);
-}
+  body {
+    color: black;
+  }
 
-#footer {
-  grid-area: footer;
-  padding: var(--jared--spacing--2xl);
-  display: none;
-}
+  a {
+    color: black;
+    text-decoration-color: black;
+  }
 
-#jared-homepage--opener {
-  margin-top: var(--jared--spacing--gap-lg);
-}
+  a:visited {
+    color: black;
+    text-decoration-color: black;
+  }
 
-#jared-homepage--middle {
-  margin: var(--jared--spacing--gap-md) 0;
+  /* doesn't work, hmmm */
+  td,
+  th {
+    border-collapse: collapse;
+    border: 1px solid black;
+  }
 }
 
 /*
