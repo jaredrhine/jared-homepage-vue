@@ -37,11 +37,27 @@ export default {
 <style lang="scss">
 /* prettier-ignore */
 :root {
+  --jared--font-modernize-default: system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji';
   --jared--font-jared-temp: "Avenir", Helvetica, Arial, sans-serif;
   // --jared--font-markdown: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   --jared--font-markdown: Helvetica,Arial,sans-serif;
   --jared--font-mono: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Menlo, Monaco, "Courier New", Courier, monospace;
-  --jared--font-base: var(--jared--font-markdown);
+  --jared--font-base: var(--jared--font-modernize-default);
+  // --jared--font-base: var(--jared--font-mono);
+  // --jared--font-base: var(--jared--font-markdown);
+  // --jared--font-base: var(--jared--font-jared-temp);
+
+  /* media queries not possible
+  --jared--breakpoint--tablet: 768px;
+  --jared--breakpoint--smalldesk: 1024px;
+  --jared--breakpoint--widedesk: 1280px;
+  */
+
+  --jared--font-base--size--smallphone: 12pt;
+  --jared--font-base--size--tablet: 13pt;
+  --jared--font-base--size--smalldesk: 13.5pt;
+  --jared--font-base--size--widedesk: 14pt;
+
   --jared--color-alpha-h: 140;
   --jared--color-alpha-s: 60%;
   --jared--color-alpha-l: 25%;
@@ -61,10 +77,22 @@ export default {
   --jared--color-grey--80: hsl(0,0%,73.4%); /* #bbb */
   --jared--text-color: var(--jared--color-beta);
   --jared--link-underline-color: var(--jared--color-beta--dark45);
+
+  --jared--spacing--2xs: 0.125rem;
+  --jared--spacing--xs: 0.20rem;
+  --jared--spacing--sm: 0.250rem;
+  --jared--spacing--md: 0.500rem;
+  --jared--spacing--lg: 0.750rem;
+  --jared--spacing--xl: 0.875rem;
+  --jared--spacing--2xl: 1.00rem;
+  --jared--spacing--3xl: 1.50rem;
+  --jared--spacing--4xl: 2.00rem;
+
+  --jared--text-line-height--lg: calc(var(--jared--spacing--xl) * 2);
 }
 
 body {
-  // font-family: var(--jared--font-base);
+  font-family: var(--jared--font-base);
   background-color: var(--jared--color-alpha);
   color: var(--jared--text-color);
   -webkit-font-smoothing: antialiased;
@@ -87,15 +115,21 @@ h3 {
 h1 {
   font-size: 1.85em;
   line-height: 2rem;
+  margin-top: var(--jared--spacing--xl);
+  margin-bottom: var(--jared--spacing--xl);
+}
+
+h1:first-of-type {
+  margin-top: 0;
 }
 
 h2,
 h3 {
-  margin-top: 0.5rem;
+  margin-top: var(--jared--spacing--xl);
 }
 
 table {
-  margin-top: 0.5rem;
+  margin-top: var(--jared--spacing--md);
 }
 
 table,
@@ -103,16 +137,38 @@ th,
 td {
   border: 1px solid var(--jared--color-beta);
   border-collapse: collapse;
-  padding: 0 0.4rem;
   vertical-align: top;
 }
 
 table {
-  margin-bottom: 1rem;
+  margin-top: var(--jared--spacing--xl);
+  margin-bottom: var(--jared--spacing--lg);
 }
 
 thead {
   vertical-align: bottom;
+}
+
+th,
+td {
+  padding: var(--jared--spacing--md) var(--jared--spacing--md);
+}
+
+p,
+ul,
+ol {
+  margin-top: var(--jared--spacing--lg);
+  margin-bottom: 0;
+  line-height: var(--jared--text-line-height--lg);
+}
+
+li {
+  margin: var(--jared--spacing--sm);
+  line-height: var(--jared--text-line-height--lg);
+}
+
+li ul {
+  margin-top: var(--jared--spacing--sm);
 }
 
 p > code,
@@ -140,7 +196,7 @@ td > code {
 
 #jared-content {
   grid-area: content;
-  line-height: 1.45rem;
+  /* line-height: 1.45rem; */
 }
 
 #jared-sidebar {
@@ -164,24 +220,40 @@ td > code {
 
     &.router-link-exact-active {
       background-color: var(--jared--color-alpha);
-      padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+      padding: var(--jared--spacing--2xs) var(--jared--spacing--md);
     }
   }
 }
 
-// revisit breakpoints
+/* TODO: revisit breakpoints */
 
-@media screen and (max-width: 768px) {
+#jared-container {
+  font-size: var(--jared--font-base--size--smallphone);
+}
+
+@media screen and (min-width: 768px) {
   #jared-container {
-    font-size: 0.93rem;
+    font-size: var(--jared--font-base--size--tablet);
   }
 }
 
-@media screen and (min-width: 568px) {
+@media screen and (min-width: 1024px) {
+  #jared-container {
+    font-size: var(--jared--font-base--size--smalldesk);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  #jared-container {
+    font-size: var(--jared--font-base--size--widedesk);
+  }
+}
+
+@media screen and (min-width: 600px) {
   #jared-container {
     grid-template-rows: none;
     grid-template-columns: var(--jared-sidebar-width) minmax(300px, 1100px); // 1fr; // minmax(1fr, 1200px); // auto 1fr; // can't auto in col 1?
-    grid-template-areas: "sidebar content";
+    grid-template-areas: "sidebar content sidebar-bottom";
   }
 
   #jared-sidebar {
@@ -205,7 +277,13 @@ td > code {
 
 #jared-sidebar--bottom {
   grid-area: sidebar-bottom;
-  margin-top: 1rem;
+  margin-top: var(--jared--spacing--2xl);
+}
+
+#footer {
+  grid-area: footer;
+  padding: var(--jared--spacing--2xl);
+  display: none;
 }
 
 /*
@@ -214,12 +292,6 @@ td > code {
   padding: 1rem;
   // float: right;
   font-family: var(--jared--font-mono);
-}
-
-#footer {
-  grid-area: footer;
-  padding: 1rem;
-  display: none;
 }
 
 .markdown-body {

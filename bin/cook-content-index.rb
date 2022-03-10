@@ -7,9 +7,11 @@ output_file = 'homeapp/src/assets/content.json'
 pages = {}
 routes = {}
 
-pages["homepage"] = { name: "Homepage", file: "homepage.md", no_title: true, link: "/" }
+pages["home"] = { name: "Home", file: "homepage.md", no_title: true, link: "/" }
 pages["colophon"] = { name: "Colophon", file: "colophon.md", link: "/colophon" }
 pages["copyright"] = { name: "Copyright", file: "wordzoo.com/jared-content/copyright.md", link: "/copyright", no_title: true }
+
+pages["id"] = { name: "Identity", file: "identity.md", no_title: true, link: "/id" }
 
 #pages["resume-cover"] = { name: "Résumé", title: "Jared Rhine Résumé", file: "resume-cover.md", link: "/resume/cover", no_title: true }
 #pages["resume-summary"] = { name: "Résumé", file: "resume.md", no_title: true, link: "/resume/summary" }
@@ -35,9 +37,10 @@ EOM
 
 navigation = %w(
   /
+  /id
   /resume
-  /tech-stack
   --
+  /tech-stack
   /software/unix-homebase
   /software/vue-onboarding
   /project/xencd
@@ -57,7 +60,7 @@ index = {
   pages: pages,
   routes: routes,
   navigation: navigation,
-  default_page: "homepage"
+  default_page: "home"
 }
 
 pages.keys.each do |page|
