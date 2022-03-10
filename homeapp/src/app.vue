@@ -87,6 +87,11 @@ export default {
   --jared--spacing--2xl: 1.00rem;
   --jared--spacing--3xl: 1.50rem;
   --jared--spacing--4xl: 2.00rem;
+  --jared--spacing--gap-md: calc(var(--jared--spacing--4xl) * 2.5);
+  --jared--spacing--gap-lg: calc(var(--jared--spacing--gap-md) * 2);
+
+  --jared--text--2xl: 2.00rem;
+  --jared--text--3xl: 2.75rem;
 
   --jared--text-line-height--lg: calc(var(--jared--spacing--xl) * 2);
 }
@@ -113,8 +118,8 @@ h3 {
 }
 
 h1 {
-  font-size: 1.85em;
-  line-height: 2rem;
+  font-size: var(--jared--text--3xl);
+  line-height: var(--jared--text--3xl);
   margin-top: var(--jared--spacing--xl);
   margin-bottom: var(--jared--spacing--xl);
 }
@@ -196,7 +201,6 @@ td > code {
 
 #jared-content {
   grid-area: content;
-  /* line-height: 1.45rem; */
 }
 
 #jared-sidebar {
@@ -284,6 +288,14 @@ td > code {
   grid-area: footer;
   padding: var(--jared--spacing--2xl);
   display: none;
+}
+
+#jared-homepage--opener {
+  margin-top: var(--jared--spacing--gap-lg);
+}
+
+#jared-homepage--middle {
+  margin: var(--jared--spacing--gap-md) 0;
 }
 
 /*
