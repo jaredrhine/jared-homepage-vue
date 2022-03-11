@@ -25,6 +25,7 @@ pages["todo"] = { name: "Todo", file: "/home/jared/work/home/jared-homepage-vue/
 pages["vue-onboarding"] = { name: "Vue onboarding", file: "/home/jared/work/js/vue-onboarding/README.md", link: "/software/vue-onboarding", no_title: true }
 pages["xencd"] = { name: "Project: XenCD", file: "xencd-announce.md", link: "/project/xencd" }
 pages["tips"] = { name: "Tech tips", file: "tips.md", link: "/tech-tips" }
+pages["code"] = { name: "Public code", file: "code.md", link: "/code" }
 
 sws = <<EOM
 /software/management-style
@@ -40,6 +41,7 @@ navigation = %w(
   /id
   /resume
   --
+  /code
   /tech-stack
   /software/unix-homebase
   /software/vue-onboarding
