@@ -1,10 +1,19 @@
 <template>
-  <div id="jared-container" class="jared-container--alt" :style="jaredStyle">
-    <div id="jared-sidebar">
+  <!-- TODO: this id-based CSS is silly, fix it -->
+  <div
+    id="jared-container"
+    :class="{ 'jared-container--with-nav': showNav, 'jared-container--without-nav': !showNav }"
+    :style="jaredStyle"
+  >
+    <div v-if="showNav" id="jared-sidebar">
       <header id="jared-sidebar--top">
-        <a href="/">
-          <img width="90" src="@/assets/jared-profile-crater-lake-headshot.png" />
-        </a>
+        <div>
+          <a class="jared-headshot--link" href="/"><img
+              src="@/assets/jared-profile-crater-lake-headshot.png"
+              class="jared-headshot--image"
+              width="90"
+          /></a>
+        </div>
       </header>
 
       <nav id="jared-sidebar--toc">
@@ -15,6 +24,17 @@
         <router-link to="/colophon">Colophon</router-link> <br />
         <router-link to="/copyright">Copyright</router-link>
       </footer>
+
+      <div v-if="showNav">
+        <button v-if="showNav" @click="toggleNav()" class="jared-nav-trigger--button--inline">
+          <svg id="jared-nav--toggle" viewBox="0 0 32 32">
+            <path class="jared-svg--border" d="M 0,0 H 32 V 32 H 0 Z" />
+            <path class="jared-svg--menu-bar" d="M 4,4 L 28,28" />
+            <path class="jared-svg--menu-bar" d="M 4,28 L 28,4" />
+          </svg>
+          <span class="jared-nav-trigger--label">close nav</span>
+        </button>
+      </div>
     </div>
 
     <article id="jared-content">
@@ -22,89 +42,111 @@
         <router-view />
       </main>
     </article>
+
+    <button v-if="!showNav" @click="toggleNav()" class="jared-nav-trigger--button--floating">
+      <span class="jared-nav-trigger--label">show nav</span>
+      <svg id="jared-nav--toggle" viewBox="0 0 32 32">
+        <path class="jared-svg--border" d="M 0,0 H 32 V 32 H 0 Z" />
+        <path class="jared-svg--menu-bar" d="M 3,7 H 29" />
+        <path class="jared-svg--menu-bar" d="M 3,16 H 29" />
+        <path class="jared-svg--menu-bar" d="M 3,25 H 29" />
+      </svg>
+    </button>
   </div>
 </template>
 
 <script>
 import Sidebar from "./components/sidebar.vue"
 
+// TODO: move to export, this is easier to dev right now
+const themesOp = () => {
+  const baseTheme = {
+    "font-base--size--smallphone": "12pt",
+    "font-base--size--tablet": "13pt",
+    "font-base--size--smalldesk": "13.5pt",
+    "font-base--size--widedesk": "14pt",
+
+    "color-grey--500": "#9e9e9e",
+    "color-grey--800": "#424242",
+    "color-grey--900": "#212121",
+
+    "color-alpha-h": "140",
+    "color-alpha-s": "60%",
+    "color-alpha-l": "25%",
+    "color-beta-h": "60",
+    "color-beta-s": "85%",
+    "color-beta-l": "80%",
+
+    "color-alpha--light10":
+      "hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) + 10%))",
+    "color-alpha--light15":
+      "hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) + 15%))",
+    "color-alpha--dark5":
+      "hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) - 5%))",
+    "color-alpha--dark10":
+      "hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) - 10%))",
+    "color-alpha--dark15":
+      "hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) - 15%))",
+    "color-beta--light10":
+      "hsl(var(--jared--color-beta-h), var(--jared--color-beta-s), calc(var(--jared--color-beta-l) + 10%))",
+    "color-beta--dark45":
+      "hsl(var(--jared--color-beta-h), var(--jared--color-beta-s), calc(var(--jared--color-beta-l) - 45%))",
+
+    "color-alpha":
+      "hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), var(--jared--color-alpha-l))",
+    "color-beta":
+      "hsl(var(--jared--color-beta-h), var(--jared--color-beta-s), var(--jared--color-beta-l))",
+
+    "link-underline-color": "var(--jared--color-beta--dark45)",
+
+    "text-color": "var(--jared--color-beta)",
+  }
+
+  return {
+    jaredGreen: {
+      ...baseTheme,
+    },
+    corporate: {
+      ...baseTheme,
+      "color-alpha-h": "208",
+      "color-alpha-s": "85%",
+      "color-alpha-l": "7%",
+      "color-beta-h": "34",
+      "color-beta-s": "78%",
+      "color-beta-l": "84%",
+    },
+  }
+}
+
+const themes = themesOp()
+
 export default {
-  name: "app",
   components: { Sidebar },
+  data() {
+    return {
+      currentThemeName: "corporate",
+      showNav: true,
+    }
+  },
   computed: {
     jaredStyle: function () {
       let style = {}
-      let theme = this.themes[this.currentTheme] || {}
+      let theme = this.currentTheme
       const props = Object.getOwnPropertyNames(theme)
       props.forEach((prop) => {
         const styleAttr = "--jared--" + prop
         const val = theme[prop]
-        if (val !== null) {
-          style[styleAttr] = val
-        }
+        style[styleAttr] = val
       })
       return style
     },
     currentTheme: function () {
-      return "corporate" // TODO: make switchable
+      return themes[this.currentThemeName] || {}
     },
-    themes: function () {
-      const baseTheme = {
-        "font-base--size--smallphone": "12pt",
-        "font-base--size--tablet": "13pt",
-        "font-base--size--smalldesk": "13.5pt",
-        "font-base--size--widedesk": "14pt",
-
-        "color-grey--500": "#9e9e9e",
-        "color-grey--800": "#424242",
-        "color-grey--900": "#212121",
-
-        "color-alpha-h": "140",
-        "color-alpha-s": "60%",
-        "color-alpha-l": "25%",
-        "color-beta-h": "60",
-        "color-beta-s": "85%",
-        "color-beta-l": "80%",
-
-        "color-alpha--light10":
-          "hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) + 10%))",
-        "color-alpha--light15":
-          "hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) + 15%))",
-        "color-alpha--dark5":
-          "hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) - 5%))",
-        "color-alpha--dark10":
-          "hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) - 10%))",
-        "color-alpha--dark15":
-          "hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), calc(var(--jared--color-alpha-l) - 15%))",
-        "color-beta--light10":
-          "hsl(var(--jared--color-beta-h), var(--jared--color-beta-s), calc(var(--jared--color-beta-l) + 10%))",
-        "color-beta--dark45":
-          "hsl(var(--jared--color-beta-h), var(--jared--color-beta-s), calc(var(--jared--color-beta-l) - 45%))",
-
-        "color-alpha":
-          "hsl(var(--jared--color-alpha-h), var(--jared--color-alpha-s), var(--jared--color-alpha-l))",
-        "color-beta":
-          "hsl(var(--jared--color-beta-h), var(--jared--color-beta-s), var(--jared--color-beta-l))",
-
-        "link-underline-color": "var(--jared--color-beta--dark45)",
-
-        "text-color": "var(--jared--color-beta)",
-      }
-
-      return {
-        jaredGreen: {
-          ...baseTheme,
-        },
-        corporate: {
-          ...baseTheme,
-          "color-alpha-h": "208",
-          "color-alpha-s": "85%",
-          "color-alpha-l": "7%",
-          "color-beta-h": "34",
-          "color-beta-s": "78%",
-          "color-beta-l": "84%",
-        },
-      }
+  },
+  methods: {
+    toggleNav: function () {
+      this.showNav = !this.showNav
     },
   },
 }
@@ -143,6 +185,7 @@ body {
   font-family: var(--jared--font-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--jared--color-beta);
 }
 
 @media screen {
@@ -222,22 +265,32 @@ body {
     border-radius: 0.2rem;
     padding: 0.05rem 0.15rem;
   }
+}
 
+/* TODO: my my, this DOM/CSS structure has gotten ugly, hasn't it... */
+
+@media screen {
   #jared-container {
     --jared-sidebar-width: 9.5rem;
-    line-height: 1.3rem;
-
-    background-color: var(--jared--color-alpha);
-    color: var(--jared--text-color);
 
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-areas: "content";
+    grid-template-rows: auto;
+    min-height: 100vh;
+
+    font-size: var(--jared--font-base--size--smallphone);
+    background-color: var(--jared--color-alpha);
+    color: var(--jared--text-color);
+    line-height: 1.3rem;
+  }
+
+  #jared-container.jared-container--with-nav {
     grid-template-areas: "sidebar" "content";
+    grid-template-rows: auto 1fr;
   }
 
   #jared-content,
   #jared-sidebar {
-    min-height: 100vh;
     padding: var(--jared--spacing--lg);
   }
 
@@ -246,6 +299,7 @@ body {
   }
 
   #jared-sidebar {
+    height: 100%;
     grid-area: sidebar;
 
     display: grid;
@@ -271,10 +325,53 @@ body {
     }
   }
 
-  /* TODO: revisit breakpoints */
+  #jared-sidebar--top {
+    grid-area: sidebar-top;
+  }
 
-  #jared-container {
-    font-size: var(--jared--font-base--size--smallphone);
+  #jared-sidebar--toc {
+    grid-area: sidebar-toc;
+    overflow: auto;
+    min-height: 5rem;
+  }
+
+  #jared-sidebar--bottom {
+    grid-area: sidebar-bottom;
+    margin-top: var(--jared--spacing--2xl);
+  }
+
+  #jared-homepage--opener {
+    margin-top: var(--jared--spacing--gap-lg);
+  }
+
+  #jared-homepage--middle {
+    margin: var(--jared--spacing--gap-md) 0;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  #jared-container.jared-container--with-nav {
+    grid-template-areas: "sidebar content";
+    grid-template-rows: auto;
+    grid-template-columns: var(--jared-sidebar-width) minmax(300px, 900px);
+  }
+
+  #jared-container.jared-container--without-nav {
+    grid-template-areas: "content";
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+  }
+
+  #jared-sidebar {
+    width: var(--jared-sidebar-width);
+    position: fixed;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto;
+  }
+
+  #jared-content {
+    height: 100%;
+    min-height: 100vh;
   }
 }
 
@@ -296,50 +393,47 @@ body {
   }
 }
 
-@media screen and (min-width: 600px) {
-  #jared-container {
-    grid-template-rows: none;
-    grid-template-columns: var(--jared-sidebar-width) minmax(300px, 900px); // 1fr; // minmax(1fr, 1200px); // auto 1fr; // can't auto in col 1?
-    grid-template-areas: "sidebar content sidebar-bottom";
-  }
-
-  #jared-sidebar {
-    width: var(--jared-sidebar-width);
-    position: fixed;
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: auto;
-  }
+.jared-nav-trigger--button--floating {
+  border-radius: var(--jared--spacing--lg);
+  position: fixed;
+  bottom: var(--jared--spacing--md);
+  right: var(--jared--spacing--md);
 }
 
-@media screen {
-  #jared-sidebar--top {
-    grid-area: sidebar-top;
-  }
+.jared-nav-trigger--button--inline {
+  margin-top: var(--jared--spacing--lg);
+  border-radius: var(--jared--spacing--lg);
+}
 
-  #jared-sidebar--toc {
-    grid-area: sidebar-toc;
-    overflow: auto;
-    min-height: 5rem;
-  }
+.jared-nav-trigger--label {
+  padding: var(--jared--spacing--sm);
+  position: relative; // TODO: vertically center probably, flexbox
+  bottom: calc(var(--jared--spacing--sm) * 1.5;
+}
 
-  #jared-sidebar--bottom {
-    grid-area: sidebar-bottom;
-    margin-top: var(--jared--spacing--2xl);
-  }
+.jared-headshot--image {
+  border-radius: 50%;
+  display: block;
+}
 
-  #footer {
-    grid-area: footer;
-    padding: var(--jared--spacing--2xl);
-    display: none;
-  }
+#jared-sidebar .jared-headshot--link {
+  padding-left: 0;
+}
 
-  #jared-homepage--opener {
-    margin-top: var(--jared--spacing--gap-lg);
-  }
+#jared-nav--toggle {
+  height: 24px;
+  position: relative;
+  top: 1px; // TODO: improve
+}
 
-  #jared-homepage--middle {
-    margin: var(--jared--spacing--gap-md) 0;
-  }
+.jared-svg--border {
+  stroke: var(--jared--color-beta);
+  stroke-width: 1px;
+}
+
+.jared-svg--menu-bar {
+  stroke: var(--jared--color-beta);
+  stroke-width: 4px;
 }
 
 @media print {
@@ -368,56 +462,4 @@ body {
     border: 1px solid black;
   }
 }
-
-/*
-#header {
-  grid-area: header;
-  padding: 1rem;
-  // float: right;
-  font-family: var(--jared--font-mono);
-}
-
-.markdown-body {
-  font-family: var(--jared--font-base) !important;
-  color: var(--jared--text-color) !important;
-}
-
-.markdown-body a {
-  color: var(--jared--text-color) !important;
-  text-decoration: underline !important;
-}
-
-.markdown-body pre,
-.markdown-body.highlight pre {
-  color: var(--jared--text-color) !important;
-  background-color: var(--jared--color-alpha) !important;
-}
-
-.markdown-body table tr {
-  background-color: var(--jared--color-alpha) !important;
-  border: 1px solid black;
-}
-
-.markdown-body h1,
-.markdown-body h2 {
-  border-bottom: 0 !important;
-}
-
-.markdown-body h2 {
-  padding-bottom: 0.2rem !important;
-}
-
-.markdown-body blockquote {
-  color: var(--jared--text-color) !important;
-}
-
-// wat
-.hljs {
-  color: var(--jared--text-color) !important;
-}
-
-.markdownIt-TOC {
-  list-style: none;
-}
-*/
 </style>
