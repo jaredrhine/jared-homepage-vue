@@ -185,7 +185,7 @@ body {
   font-family: var(--jared--font-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--jared--color-beta);
+  background-color: hsl(208, 85%, 7%); // TODO: rework to be theme-supporting
 }
 
 @media screen {
@@ -275,6 +275,7 @@ body {
 
     display: grid;
     grid-template-areas: "content";
+    grid-template-columns: 100%;
     grid-template-rows: auto;
     min-height: 100vh;
 
@@ -303,9 +304,9 @@ body {
     grid-area: sidebar;
 
     display: grid;
+    grid-template-areas: "sidebar-top" "sidebar-toc" "sidebar-bottom";
     grid-template-columns: none;
     grid-template-rows: auto 1fr auto;
-    grid-template-areas: "sidebar-top" "sidebar-toc" "sidebar-bottom";
 
     background-color: var(--jared--color-alpha--light10);
     font-size: var(--jared--text--sm);
@@ -434,6 +435,10 @@ body {
 .jared-svg--menu-bar {
   stroke: var(--jared--color-beta);
   stroke-width: 4px;
+}
+
+.jared-img--markdown-wrapper > img {
+  width: 100%;
 }
 
 @media print {
