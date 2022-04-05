@@ -8,7 +8,8 @@
     <div v-if="showNav" id="jared-sidebar">
       <header id="jared-sidebar--top">
         <div>
-          <a class="jared-headshot--link" href="/"><img
+          <a class="jared-headshot--link" href="/">
+            <img
               src="@/assets/jared-profile-crater-lake-headshot.png"
               class="jared-headshot--image"
               width="90"
@@ -466,5 +467,10 @@ body {
     border-collapse: collapse;
     border: 1px solid black;
   }
+}
+
+.markdownIt-TOC {
+  list-style: none;
+  padding-left: 0;
 }
 </style>
