@@ -18,6 +18,7 @@ pages["id"] = { name: "Identity", file: "identity.md", no_title: true, link: "/i
 pages["resume-full"] = { name: "Résumé", file: "resume-full.md", no_title: true, link: "/resume" }
 pages["tomo-design"] = { name: "Tomo design", file: "personal/information/tomo/tomo-design.md", no_title: true, link: "/projects/tomo-design" }
 pages["dx-is-key"] = { name: "DX is key", file: "dx-is-key.md", link: "/software/dx-is-key" }
+pages["management-style"] = { name: "Management style", file: "management-style.md", link: "/software/management-style" }
 pages["k8s-cheatsheet"] = { name: "k8s cheatsheet", file: "computing/kubernetes/kubernetes-cheatsheet.md", no_title: true, link: "/software/k8s-cheatsheet" }
 pages["gcloud-cheatsheet"] = { name: "Gcloud cheatsheet", file: "computing/google-cloud/google-cloud-cheatsheet.md", link: "/software/gcloud-cheatsheet", no_title: true }
 pages["skills-inventory"] = { name: "Skills inventory", link: "/skills" }

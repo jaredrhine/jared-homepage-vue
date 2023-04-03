@@ -7,14 +7,14 @@
   >
     <div v-if="showNav" id="jared-sidebar">
       <header id="jared-sidebar--top">
-        <div>
+        <!-- div>
           <a class="jared-headshot--link" href="/">
             <img
               src="@/assets/jared-profile-crater-lake-headshot.png"
               class="jared-headshot--image"
               width="90"
           /></a>
-        </div>
+        </!-->
       </header>
 
       <nav id="jared-sidebar--toc">
@@ -219,6 +219,11 @@ body {
     margin-top: var(--jared--spacing--xl);
   }
 
+  h2 {
+    padding-top: var(--jared--spacing--md);
+    padding-bottom: var(--jared--spacing--md);
+  }
+
   table,
   th,
   td {
@@ -408,9 +413,10 @@ body {
 }
 
 .jared-nav-trigger--label {
+  font-size: var(--jared--text--sm);
   padding: var(--jared--spacing--sm);
   position: relative; // TODO: vertically center probably, flexbox
-  bottom: calc(var(--jared--spacing--sm) * 1.5;
+  bottom: calc(var(--jared--spacing--sm) * 1.5);
 }
 
 .jared-headshot--image {

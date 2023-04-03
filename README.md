@@ -22,6 +22,7 @@ The actual content (text copy) of the site is not contained within this repo. Th
 git clone https://github.com/jaredrhine/jared-homepage-vue
 cd jared-homepage-vue
 npm install
+cd homeapp
 ```
 
 ### Compiles and hot-reloads for development
